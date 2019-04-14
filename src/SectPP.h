@@ -1,0 +1,20 @@
+#ifndef _SRC_SECTPP_H
+#define _SCR_SECTPP_H
+int SectPP(
+        int px1,
+        int py1,
+        int px2,
+        int py2,
+        int px3,
+        int py3,
+        int px4,
+        int py4,
+        int px5,
+        int py5,
+        int px6,
+        int py6,
+        int px7,
+        int py7,
+        int px8,
+        int py8);
+#endif
