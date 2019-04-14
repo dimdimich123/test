@@ -1,8 +1,8 @@
 .PHONY: all clean install uninstall
 
 CC=g++ -Wall -Werror
-PP=~/geometry/src/
-SE=~/geometry/bin/
+PP=~/test/src/
+SE=~/test/bin/
 
 all: $(SE)start
 
