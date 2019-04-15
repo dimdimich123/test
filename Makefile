@@ -6,8 +6,8 @@ SE=~/test/bin/
 
 all: $(SE)start
 
-$(SE)start: $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
-	$(CC) -o $(SE)start $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
+$(SE)start: $(SE)geo.o $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
+	$(CC) -o $(SE)start $(SE)geo.o $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
 
 $(SE)SectTC.o: $(PP)SectTC.c
 	$(CC) -c -o $(SE)SectTC.o $(PP)SectTC.c
