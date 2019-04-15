@@ -25,7 +25,7 @@ $(SE)geo.o: $(PP)geo.c
 	$(CC) -c -o $(SE)geo.o $(PP)geo.c
 $(SE)Str.o: $(PP)Str.c
 	$(CC) -c -o $(SE)Str.o $(PP)Str.c
-$(SE)circle.o: $(PP)circle.c
+$(SE)circle.o: $(PP)circle.c $(PP)circle.h
 	$(CC) -c -o $(SE)circle.o $(PP)circle.c
 $(SE)triangle.o: $(PP)triangle.c
 	$(CC) -c -o $(SE)triangle.o $(PP)triangle.c
