@@ -2,11 +2,11 @@
 
 CC=g++ -Wall -Werror
 PP=~/test/src/
-SE=
+SE=~/test/bin/
 
-all: start
+all: $(SE)start
 
-$(SE)start: polygon.o triangle.o circle.o Str.o geo.o SectPC.o SectPT.o SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
+$(SE)start: $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
 	$(CC) -o $(SE)start $(SE)polygon.o $(SE)triangle.o $(SE)circle.o $(SE)Str.o $(SE)geo.o $(SE)SectPC.o $(SE)SectPT.o $(SE)SectPP.o $(SE)SectTT.o $(SE)SectCC.o $(SE)SectTC.o
 
 $(SE)polygon.o: $(PP)polygon.c
