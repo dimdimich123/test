@@ -1,9 +1,9 @@
-sudo: false
+dist: trusty
+sudo: required
 
-language: node_js
-node_js:
-  - 9
+language: cpp
+compiler: gcc
 
-branches:
-  only:
-    - master
+script:
+  - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+  - make
