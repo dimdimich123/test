@@ -1,7 +1,6 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-
 void circle(int f)
 {
     float ploshs, perims;
@@ -49,4 +48,3 @@ void triangle(int xt1, int yt1, int xt2, int yt2, int xt3, int yt3)
     printf("Perim=%f\n", perim);
     return;
 }
-

@@ -1,6 +1,6 @@
-#include "intersect.h"
 #include "Str.h"
 #include "figures.h"
+#include "intersect.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
