@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 int Str(int& x1,
         int& u1,
         int& r1,

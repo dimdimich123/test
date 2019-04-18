@@ -1,13 +1,6 @@
-#include "SectCC.h"
-#include "SectPC.h"
-#include "SectPP.h"
-#include "SectPT.h"
-#include "SectTC.h"
-#include "SectTT.h"
+#include "intersect.h"
 #include "Str.h"
-#include "circle.h"
-#include "polygon.h"
-#include "triangle.h"
+#include "figures.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

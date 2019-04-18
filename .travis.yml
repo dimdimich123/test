@@ -4,14 +4,7 @@ sudo: required
 language: cpp
 compiler: gcc
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-6
-      - g++-6
-      - cmake
-      - gcc -v && g++ -v && cmake --version
+dist: xenial
+
 script: 
-    - mkdir build && cd build && cmake --build
+    -- git ls-files src/ | xargs clang-format -i && git diff --exit-code && make
