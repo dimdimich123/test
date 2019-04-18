@@ -1,6 +1,6 @@
 CC=g++ -Wall -Werror
-PP=~/test/src/
-SE=~/test/bin/
+PP=src/
+SE=bin/
 
 all: start
 
@@ -17,4 +17,4 @@ $(SE)Str.o: $(PP)Str.c
 clean:
 	rm -rf start $(SE)*.o
 
-.PHONY: all clean install uninstall $(PP)figures.c $(PP)geo.c $(PP)intersect.c $(PP)Str.c
+.PHONY: all clean install uninstall
