@@ -1,5 +1,3 @@
-.PHONY: all clean install uninstall
-
 CC=g++ -Wall -Werror
 PP=~/test/src/
 SE=~/test/bin/
@@ -18,3 +16,5 @@ $(SE)Str.o: $(PP)Str.c
 	$(CC) -c -o $(SE)Str.o $(PP)Str.c
 clean:
 	rm -rf start $(SE)*.o
+
+.PHONY: all clean install uninstall $(PP)figures.c $(PP)geo.c $(PP)intersect.c $(PP)Str.c
