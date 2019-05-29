@@ -19,7 +19,7 @@ void BubbleSort(int* A, int n)
     return;
 }
 
-int games(int* B, int jk)
+void games(int* B, int jk)
 {
     int win = 2, s = 1;
     while (1) {
@@ -33,7 +33,7 @@ int games(int* B, int jk)
         if (win == 1)
             break;
     }
-    return 1;
+    return;
 }
 
 int winner(int* B, int w, int jk)
@@ -65,28 +65,7 @@ int winner(int* B, int w, int jk)
     return 2;
 }
 
-int standart(int jk)
-{
-    int* B;
-    int s = 0;
-    B = (int*)malloc(jk * sizeof(int));
-    if (jk == 3) {
-        B[0] = rand() % 3 + 1;
-        B[1] = rand() % 3 + 4;
-        B[2] = rand() % 4 + 7;
-        s = 1;
-    } else {
-        B[0] = 1;
-        B[1] = 3;
-        B[2] = 5;
-        B[3] = 7;
-        s = 2;
-    }
-    free(B);
-    return s;
-}
-
-int ComputerTurn(int* B, int jk, int s)
+void ComputerTurn(int* B, int jk, int s)
 {
     int max1, i, min, med, med2, raz = 0, C[jk];
     if (jk == 3) {
@@ -103,17 +82,17 @@ int ComputerTurn(int* B, int jk, int s)
         raz = max1 + min - med;
         if (B[0] == max1) {
             B[0] -= raz;
-            return B[0];
+            return;
         }
         if (B[1] == max1) {
             B[1] -= raz;
-            return B[1];
+            return;
         }
         if (B[2] == max1) {
             B[2] -= raz;
-            return B[2];
+            return;
         }
-        return 3;
+        return;
     }
     if (jk == 4) {
         if (s == 0) {
@@ -121,7 +100,7 @@ int ComputerTurn(int* B, int jk, int s)
             n = 1;
             m = 2;
             B[n] -= m;
-            return B[n];
+            return;
         }
         for (i = 0; i < jk; i++)
             C[i] = B[i];
@@ -135,21 +114,20 @@ int ComputerTurn(int* B, int jk, int s)
             raz = max1;
         if (B[0] == max1) {
             B[0] -= raz;
-            return B[0];
+            return;
         }
         if (B[1] == max1) {
             B[1] -= raz;
-            return B[1];
+            return;
         }
         if (B[2] == max1) {
             B[2] -= raz;
-            return B[2];
+            return;
         }
         if (B[3] == max1) {
             B[3] -= raz;
-            return B[3];
+            return;
         }
     }
-    return 555;
+    return;
 }
-

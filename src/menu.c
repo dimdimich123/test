@@ -97,7 +97,7 @@ void recordsmenu()
 {
     struct S A;
     FILE* f;
-    f = fopen("records.dat", "rb");
+    f = fopen("../records.dat", "rb");
 
     int x, y, iy, i;
     Vector2i mousexy;
@@ -159,7 +159,7 @@ void recordsmenu()
                 }
                 if (x > 339 && x < 785 && y > 439 && y < 479) {
                     fclose(f);
-                    f = fopen("records.dat", "wb");
+                    f = fopen("../records.dat", "wb");
                     fclose(f);
                     return;
                 }
@@ -235,7 +235,7 @@ void record(int s)
                 y = mousexy.y;
                 if (x > 276 && x < 508 && y > 366 && y < 414) {
                     FILE* f;
-                    f = fopen("records.dat", "ab");
+                    f = fopen("../records.dat", "ab");
                     strcpy(A.names, str);
                     A.lim = s;
                     fwrite(&A, sizeof(A), 1, f);
@@ -251,7 +251,7 @@ void record(int s)
                 }
                 if (event.text.unicode == 13) {
                     FILE* f;
-                    f = fopen("records.dat", "ab");
+                    f = fopen("../records.dat", "ab");
                     strcpy(A.names, str);
                     A.lim = s;
                     fwrite(&A, sizeof(A), 1, f);
@@ -259,7 +259,7 @@ void record(int s)
                     return;
                 }
                 if (event.text.unicode < 128 && event.text.unicode != 8
-                    && i < 16) {
+                    && i < 15) {
                     str[i] = static_cast<char>(event.text.unicode);
                     i++;
                     name.setString(str);
