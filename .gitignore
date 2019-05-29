@@ -1,4 +1,4 @@
-*.o
+bin/game
+build/
 *.swp
-*~
-geo
+src/*.swp

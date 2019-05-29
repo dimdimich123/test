@@ -1,3 +1,2 @@
-# geometry
-
-https://travis-ci.com/dimdimich123/geometry.svg?branch=master
+# Game-NIM
+[![Build Status](https://travis-ci.org/Maxim2810/Game-NIM.svg?branch=master)](https://travis-ci.org/Maxim2810/Game-NIM)
