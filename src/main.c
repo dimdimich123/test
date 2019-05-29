@@ -10,7 +10,7 @@ int main()
     Vector2i mousexy;
     srand(time(NULL));
     Image backIM;
-    backIM.loadFromFile("../src/images/wood.png");
+    backIM.loadFromFile("src/images/wood.png");
 
     Texture backTX;
     backTX.loadFromImage(backIM);
@@ -20,7 +20,7 @@ int main()
     backSP.setPosition(0, 0);
 
     Font font;
-    font.loadFromFile("../src/font/16872.ttf");
+    font.loadFromFile("src/font/16872.ttf");
     Text text, t1, t2, t3, t4;
     text.setFont(font);
     t1.setFont(font);
