@@ -21,7 +21,7 @@ repository:
 clean:
 	rm -rf bin/game
 	rm -rf bin/test
-	rm -R build
+	rm -rf -R build
 
 test: repository bin/test
 

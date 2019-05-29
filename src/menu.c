@@ -1,8 +1,5 @@
 #include "../library/lib.h"
 #include "game.h"
-#include <SFML/Graphics.hpp>
-#include <sstream>
-#include <unistd.h>
 
 using namespace sf;
 extern RenderWindow window;
@@ -12,7 +9,7 @@ void lose()
     int x, y;
     Vector2i mousexy;
     Image backIM;
-    backIM.loadFromFile("src/images/wood.png");
+    backIM.loadFromFile("../src/images/wood.png");
 
     Texture backTX;
     backTX.loadFromImage(backIM);
@@ -22,7 +19,7 @@ void lose()
     backSP.setPosition(0, 0);
 
     Font font;
-    font.loadFromFile("src/font/16872.ttf");
+    font.loadFromFile("../src/font/16872.ttf");
     Text t1, text;
     t1.setFont(font);
     t1.setString(L"Выйти в меню");
@@ -61,8 +58,8 @@ void manual()
     int x, y;
     Vector2i mousexy;
     Image backIM, rulesIM;
-    backIM.loadFromFile("src/images/wood.png");
-    rulesIM.loadFromFile("src/images/rules.png");
+    backIM.loadFromFile("../src/images/wood.png");
+    rulesIM.loadFromFile("../src/images/rules.png");
 
     Texture backTX, rulesTX;
     backTX.loadFromImage(backIM);
@@ -105,7 +102,7 @@ void recordsmenu()
     int x, y, iy, i;
     Vector2i mousexy;
     Image backIM;
-    backIM.loadFromFile("src/images/wood.png");
+    backIM.loadFromFile("../src/images/wood.png");
 
     Texture backTX;
     backTX.loadFromImage(backIM);
@@ -115,7 +112,7 @@ void recordsmenu()
     backSP.setPosition(0, 0);
 
     Font font;
-    font.loadFromFile("src/font/16872.ttf");
+    font.loadFromFile("../src/font/16872.ttf");
     Text text, t1, t2, t3, t4, t5, t6;
     text.setFont(font);
     t1.setFont(font);
@@ -202,7 +199,7 @@ void record(int s)
     int x, y;
     Vector2i mousexy;
     Image backIM;
-    backIM.loadFromFile("src/images/wood.png");
+    backIM.loadFromFile("../src/images/wood.png");
 
     Texture backTX;
     backTX.loadFromImage(backIM);
@@ -212,7 +209,7 @@ void record(int s)
     backSP.setPosition(0, 0);
 
     Font font;
-    font.loadFromFile("src/font/16872.ttf");
+    font.loadFromFile("../src/font/16872.ttf");
     Text text, t1, name("", font, 70);
     text.setFont(font);
     text.setString(L"Введите ваше имя");
@@ -285,11 +282,11 @@ int pole(int* B, int flag, int jk, int s)
     int fx = 0, fy = 0;
     Vector2i mousexy;
     Image backIM, fishIM;
-    backIM.loadFromFile("src/images/wood.png");
-    fishIM.loadFromFile("src/images/fishka2.png");
+    backIM.loadFromFile("../src/images/wood.png");
+    fishIM.loadFromFile("../src/images/fishka2.png");
 
     Font font;
-    font.loadFromFile("src/font/16872.ttf");
+    font.loadFromFile("../src/font/16872.ttf");
     Text text, t1;
     text.setFont(font);
     t1.setFont(font);
@@ -390,7 +387,7 @@ void difficulty()
     int x, y;
     Vector2i mousexy;
     Image backIM;
-    backIM.loadFromFile("src/images/wood.png");
+    backIM.loadFromFile("../src/images/wood.png");
 
     Texture backTX;
     backTX.loadFromImage(backIM);
@@ -400,7 +397,7 @@ void difficulty()
     backSP.setPosition(0, 0);
 
     Font font;
-    font.loadFromFile("src/font/16872.ttf");
+    font.loadFromFile("../src/font/16872.ttf");
     Text text, t1, t2, t3;
     text.setFont(font);
     t1.setFont(font);

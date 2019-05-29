@@ -8,3 +8,6 @@ struct S{
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <SFML/Graphics.hpp>
+#include <unistd.h>
+#include <sstream>

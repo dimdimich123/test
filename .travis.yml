@@ -1,9 +1,8 @@
 dist: xenial
 sudo: required
-language: cpp
-compiler: g++
-addons:
-  apt_packages:
-    - libsfml-dev
-script:
-- git ls-files src/ | xargs clang-format -i && git diff --exit-code && make && make test && ./bin/test
+
+language: C
+compiler: gcc
+
+script: 
+    - git ls-files src/ | xargs clang-format -i && git diff --exit-code && make
