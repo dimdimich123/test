@@ -7,5 +7,6 @@ addons:
     - libsfml-dev
 script:
 - git ls-files src/ | xargs clang-format -i && git diff --exit-code 
-- make -
+- make
 - make test
+- bin/test
