@@ -52,19 +52,19 @@ int main()
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 255 && x < 463 && y > 198 && y < 242) {
+                if (text.getGlobalBounds().contains(x, y)) {
                     difficulty();
                     break;
                 }
-                if (x > 252 && x < 487 && y > 277 && y < 330) {
+                if (t2.getGlobalBounds().contains(x, y)) {
                     recordsmenu();
                     break;
                 }
-                if (x > 254 && x < 474 && y > 353 && y < 410) {
+                if (t3.getGlobalBounds().contains(x, y)) {
                     manual();
                     break;
                 }
-                if (x > 249 && x < 424 && y > 437 && y < 484) {
+                if (t4.getGlobalBounds().contains(x, y)) {
                     window.close();
                 }
             }

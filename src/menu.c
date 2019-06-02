@@ -1,6 +1,6 @@
 #include "../library/lib.h"
 #include "game.h"
-
+int a = 75, b = 10;
 using namespace sf;
 extern RenderWindow window;
 
@@ -40,9 +40,8 @@ void lose()
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 201 && x < 602 && y > 405 && y < 458) {
+                if (t1.getGlobalBounds().contains(x, y))
                     return;
-                }
             }
         }
         window.clear();
@@ -81,9 +80,8 @@ void manual()
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 0 && x < 800 && y > 0 && y < 500) {
+                if (rulesSP.getGlobalBounds().contains(x, y))
                     return;
-                }
             }
         }
         window.clear();
@@ -139,7 +137,7 @@ void recordsmenu()
     t4.setPosition(100, 70);
     t5.setPosition(490, 70);
 
-    std::ostringstream Score; // объявили переменную
+    std::ostringstream Score;
     std::ostringstream Num;
 
     while (window.isOpen()) {
@@ -154,10 +152,9 @@ void recordsmenu()
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 13 && x < 145 && y > 436 && y < 480) {
+                if (t1.getGlobalBounds().contains(x, y))
                     return;
-                }
-                if (x > 339 && x < 785 && y > 439 && y < 479) {
+                if (t2.getGlobalBounds().contains(x, y)) {
                     fclose(f);
                     f = fopen("../records.dat", "wb");
                     fclose(f);
@@ -233,7 +230,7 @@ void record(int s)
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 276 && x < 508 && y > 366 && y < 414) {
+                if (t1.getGlobalBounds().contains(x, y)) {
                     FILE* f;
                     f = fopen("../records.dat", "ab");
                     strcpy(A.names, str);
@@ -275,12 +272,37 @@ void record(int s)
     }
 }
 
+int hod(int* B, std::vector<sf::Sprite>& fish, int x, int y)
+{
+    int ss = 0, sk = 0;
+    for (int i = 0; i < 19; i++, ss++) {
+        if (ss >= B[sk]) {
+            sk++;
+            ss = 0;
+        }
+        if (ss >= B[sk]) {
+            sk++;
+            ss = 0;
+        }
+        if (ss >= B[sk]) {
+            sk++;
+            ss = 0;
+        }
+        if (fish[i].getGlobalBounds().contains(x, y)) {
+            B[sk] = ss;
+            return 0;
+        }
+    }
+    return 3;
+}
+
 int pole(int* B, int flag, int jk, int s)
 {
-    int j, ss, sk;
+    int j, z, iss;
     int x, y;
     int fx = 0, fy = 0;
     Vector2i mousexy;
+
     Image backIM, fishIM;
     backIM.loadFromFile("../src/images/wood.png");
     fishIM.loadFromFile("../src/images/fishka2.png");
@@ -304,16 +326,14 @@ int pole(int* B, int flag, int jk, int s)
     backTX.loadFromImage(backIM);
     fishTX.loadFromImage(fishIM);
 
-    Sprite backSP, fishSP;
+    std::vector<sf::Sprite> fish(19, sf::Sprite(fishTX));
+    Sprite backSP;
     backSP.setTexture(backTX);
     backSP.setPosition(0, 0);
-    fishSP.setTexture(fishTX);
-
     while (window.isOpen()) {
-        fx = 10;
-        fy = 10;
-        ss = 0;
-        sk = 0;
+        iss = 0;
+        fx = b;
+        fy = b;
         Event event;
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed)
@@ -323,56 +343,49 @@ int pole(int* B, int flag, int jk, int s)
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 605 && x < 789 && y > 420 && y < 484)
+                if (text.getGlobalBounds().contains(x, y))
                     return 1;
-
-                for (int i = 10; i <= (60 * jk) + (10 * jk) - 60; i += 70) {
-                    ss = 0;
-                    for (int is = 10; is <= 430; is += 70) {
-                        if (y > i && y < i + 60 && x > is && x < is + 60) {
-                            if (B[sk] > ss && sk < jk) {
-                                B[sk] = ss;
-                                return 0;
-                            }
-                        }
-                        ss++;
-                    }
-                    sk++;
-                }
+                z = hod(B, fish, x, y);
+                if (z == 0)
+                    return z;
             }
         }
         window.clear();
         window.draw(backSP);
         window.draw(text);
         for (j = 0; j < B[0]; j++) {
-            fishSP.setPosition(fx, fy);
-            fx += 70;
-            window.draw(fishSP);
+            fish[iss].setPosition(fx, fy);
+            fx += a;
+            window.draw(fish[iss]);
+            iss++;
         }
-        fx = 10;
-        fy = 80;
+        fx = b;
+        fy += a;
         for (j = 0; j < B[1]; j++) {
-            fishSP.setPosition(fx, fy);
-            fx += 70;
-            window.draw(fishSP);
+            fish[iss].setPosition(fx, fy);
+            fx += a;
+            window.draw(fish[iss]);
+            iss++;
         }
-        fx = 10;
-        fy = 150;
+        fx = b;
+        fy += a;
         for (j = 0; j < B[2]; j++) {
-            fishSP.setPosition(fx, fy);
-            fx += 70;
-            window.draw(fishSP);
+            fish[iss].setPosition(fx, fy);
+            fx += a;
+            window.draw(fish[iss]);
+            iss++;
         }
         if (jk == 4) {
-            fx = 10;
-            fy = 220;
+            fx = b;
+            fy += a;
             for (j = 0; j < B[3]; j++) {
-                fishSP.setPosition(fx, fy);
-                fx += 70;
-                window.draw(fishSP);
+                fish[iss].setPosition(fx, fy);
+                fx += a;
+                window.draw(fish[iss]);
+                iss++;
             }
         }
-        window.draw(t1); //рисую этот текст
+        window.draw(t1);
         window.display();
         if (flag == 0) {
             usleep(1000000);
@@ -426,15 +439,15 @@ void difficulty()
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
-                if (x > 252 && x < 641 && y > 197 && y < 243) {
+                if (t1.getGlobalBounds().contains(x, y)) {
                     standart(3);
                     break;
                 }
-                if (x > 248 && x < 554 && y > 278 && y < 327) {
+                if (t2.getGlobalBounds().contains(x, y)) {
                     standart(4);
                     break;
                 }
-                if (x > 251 && x < 410 && y > 418 && y < 467) {
+                if (t3.getGlobalBounds().contains(x, y)) {
                     return;
                 }
             }

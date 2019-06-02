@@ -1,5 +1,5 @@
-#ifndef _SRC_GAME_H
-#define _SRC_GAME_H
+#ifndef SRC_GAME_H
+#define SRC_GAME_H
 void BubbleSort(int* A, int n);
 int PlayerTurn(int* B, int jk, int s);
 void ComputerTurn(int* B, int jk, int s);

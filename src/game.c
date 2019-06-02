@@ -24,7 +24,6 @@ int PlayerTurn(int* B, int jk, int s)
 
 void ComputerTurn(int* B, int jk, int s)
 {
-    pole(B, 0, jk, s);
     int max1, i, min, med, med2, raz = 0, C[jk];
     if (jk == 3) {
         for (i = 0; i < jk; i++)
@@ -96,6 +95,7 @@ void games(int* B, int jk)
 {
     int win = 2, s = 0;
     while (1) {
+        pole(B, 0, jk, s);
         ComputerTurn(B, jk, s);
         win = winner(B, 0, jk);
         if (win == 0)
